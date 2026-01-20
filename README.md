@@ -1,10 +1,10 @@
-- Chatbot com Memória Persistente (Mock Inteligente + Arquitetura Pronta para RAG) -
+- Chatbot com Memória Persistente (Mock Inteligente + Arquitetura Pronta para RAG) 
 
 Este projeto implementa um chatbot stateful com memória persistente, desenvolvido em Python + FastAPI, com PostgreSQL, Docker e Kubernetes (kind).
 
 O sistema foi projetado para demonstrar boas práticas de arquitetura backend, separação de responsabilidades e preparação para evoluir para RAG (Retrieval-Augmented Generation), mesmo operando atualmente em modo mock inteligente, sem dependência de serviços externos.
 
-● Objetivo do Projeto
+- Objetivo do Projeto
 
 Demonstrar, de forma prática, habilidades em:
 
@@ -18,7 +18,7 @@ Estratégias de fallback (mock vs IA real)
 Observabilidade básica (health check, logs)
 O projeto foi pensado para ser realista, executável localmente e fácil de evoluir.
 
-● O que este chatbot faz?
+- O que este chatbot faz?
 
 Conversa via endpoint /chat
 Mantém estado por sessão (session_id)
@@ -26,7 +26,8 @@ Persiste histórico no PostgreSQL
 Recupera memórias recentes (top_k)
 Responde usando: Mock, OpenAI (opcional) - desativado por padrão e funciona sem dependência externa (modo demonstração)
 
-● Arquitetura
+- Arquitetura
+
 app/
 ├── api/            # Rotas FastAPI
 │   └── chat_routes.py
@@ -39,27 +40,27 @@ app/
 ├── config.py       # Configurações por ambiente
 └── main.py         # Bootstrap da aplicação
 
-● Princípios aplicados
+- Princípios aplicados
 
 Separação de responsabilidades
 Código testável e extensível
 Integrações desacopladas
 Fácil troca entre mock ↔ IA real
 
-● Persistência
+- Persistência
 
 Banco: PostgreSQL
 
 Armazena: session_id, mensagens do usuário, histórico conversacional e recupera memórias recentes para cada interação
 
-● Docker
+- Docker
 
 A aplicação é empacotada em um container Docker: docker build -t chatbot-api:1.0 .
 Python 3.12
 Dependências isoladas
 Pronto para rodar localmente ou em cluster
 
-● Kubernetes (kind)
+- Kubernetes (kind)
 
 O projeto roda em um cluster Kubernetes local (kind), com:
 
@@ -68,7 +69,8 @@ Deployment do Postgres
 Service interno
 Probes de: liveness, readiness
 
-● Executar localmente
+- Executar localmente
+
 kubectl apply -f k8s/
 kubectl port-forward svc/chatbot-api-svc 8000:80
 
@@ -77,7 +79,7 @@ Swagger:
 
 http://127.0.0.1:8000/docs
 
-● Configuração por Ambiente
+- Configuração por Ambiente
 
 Controlado via variáveis de ambiente:
 
@@ -92,7 +94,7 @@ DB_PASSWORD	Senha
 🔒 Por padrão: USE_OPENAI=false
 ➡️ O sistema funciona 100% em modo mock.
 
-● Observação Importante
+- Observação Importante
 
 Este projeto foi intencionalmente desenvolvido sem dependência obrigatória de IA externa, garantindo:
 
@@ -100,6 +102,6 @@ execução local simples
 previsibilidade de custos
 facilidade de avaliação técnica
 
-● Autora
+- Autora
 
 Projeto desenvolvido como demonstração prática de backend moderno, arquitetura limpa e preparação para sistemas de IA aplicados.
