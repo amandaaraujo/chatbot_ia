@@ -1,4 +1,4 @@
-- Chatbot com Memória Persistente (Mock Inteligente + Arquitetura Pronta para RAG) 
+___ Chatbot com Memória Persistente (Mock Inteligente + Arquitetura Pronta para RAG) ___
 
 Este projeto implementa um chatbot stateful com memória persistente, desenvolvido em Python + FastAPI, com PostgreSQL, Docker e Kubernetes (kind).
 
