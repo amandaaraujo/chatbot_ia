@@ -2,7 +2,7 @@ import time
 import psycopg2
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from app.repository.connection import init_db
+from app.repository.migrations import init_db
 from app.api.chat_routes import router as chat_routes
 
 
